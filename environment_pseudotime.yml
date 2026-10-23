@@ -1,0 +1,34 @@
+# Optional R environment for the slingshot preprocessing step
+# (`scripts/compute_pseudotime.py --method slingshot`, which calls
+#  `scripts/compute_pseudotime.R`). This is the method used to build the
+# released `pseudotime.csv` files.
+#
+# Create with:
+#     conda env create -f environment_pseudotime.yml
+#     conda activate FateDriver-pseudotime
+#
+# Notes
+# -----
+# * Keep this env separate from `FateDriver`: only `Rscript` has to be on PATH
+#   when `compute_pseudotime.py --method slingshot` runs, so a practical setup is
+#       conda activate FateDriver-pseudotime   # provides Rscript
+#       python scripts/compute_pseudotime.py ... --rscript $(which Rscript)
+#   or simply pass `--rscript /path/to/envs/FateDriver-pseudotime/bin/Rscript`
+#   from the FateDriver env.
+# * Bioconductor 3.23 (slingshot 2.20.0) is built for R 4.6. If
+#   `bioconductor-slingshot=2.20.0` cannot be solved, drop that line and install
+#   it from Bioconductor inside the env instead:
+#       Rscript -e 'BiocManager::install(version = "3.23"); BiocManager::install("slingshot")'
+# * You do not need this environment if you use the released datasets or the
+#   pure-Python `--method dpt`.
+name: FateDriver-pseudotime
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base=4.4
+  - r-matrix
+  - r-igraph
+  - r-ggplot2
+  - r-dplyr
+  - bioconductor-slingshot=2.20.0

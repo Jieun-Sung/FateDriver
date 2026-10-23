@@ -1,0 +1,19 @@
+# FateDriver published datasets. Tab-separated.
+# All paths (anndata, pseudotime, gene sets) are relative to data/.
+# pseudotime_key is the pseudotime column in the pseudotime CSV.
+# GSE297234 is released per donor (GM00731, GM23815); each is an independent dataset.
+# GSE237173 is released as six candidate-source -> aVEC lineage pairs (one row each),
+# labelled by obs['cellType'] and ordered by the per-pair Slingshot lineage pseudotime.
+dataset	species	source_cell	target_cell	obs_column	driver_genes	downstream_genes	nichenet	anndata	pseudotime	pseudotime_key
+GSE242423	human	D0	iPSC	condition	gene_sets/iPSC_oskm_driver_human_genes.csv	gene_sets/TRRUST_human_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net_human.csv	GSE242423/anndata.h5ad	GSE242423/pseudotime.csv	pseudotime
+GSE297234_GM00731	human	Fibroblast	iPSC	condition	gene_sets/iPSC_oskm_driver_human_genes.csv	gene_sets/TRRUST_human_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net_human.csv	GSE297234_GM00731/anndata.h5ad	GSE297234_GM00731/pseudotime.csv	pseudotime
+GSE297234_GM23815	human	Fibroblast	iPSC	condition	gene_sets/iPSC_oskm_driver_human_genes.csv	gene_sets/TRRUST_human_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net_human.csv	GSE297234_GM23815/anndata.h5ad	GSE297234_GM23815/pseudotime.csv	pseudotime
+GSE98567	mouse	Control_uninfected	Reprogramming	condition	gene_sets/GMT_driver_genes_mouse.csv	gene_sets/TRRUST_GMT_targets_mouse.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE98567/anndata.h5ad	GSE98567/pseudotime.csv	pseudotime
+GSE181451_Primed_MEF	mouse	MEF	iPS	condition	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE181451_Primed_MEF/anndata.h5ad	GSE181451_Primed_MEF/pseudotime.csv	pseudotime
+GSE181451_Baseline_MEF	mouse	MEF	iPS	condition	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE181451_Baseline_MEF/anndata.h5ad	GSE181451_Baseline_MEF/pseudotime.csv	pseudotime
+GSE237173_CBC_aVEC	mouse	CBC	aVEC	cellType	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE237173/CBC_Cont-aVEC_Dox_(root_CBC_Lineage1).h5ad	GSE237173/CBC_Cont-aVEC_Dox_(root_CBC_Lineage1)_pseudotime.csv	pseudotime_lineage
+GSE237173_EC_aVEC	mouse	EC	aVEC	cellType	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE237173/EC_Cont-aVEC_Dox_(root_EC_Lineage1).h5ad	GSE237173/EC_Cont-aVEC_Dox_(root_EC_Lineage1)_pseudotime.csv	pseudotime_lineage
+GSE237173_EE_aVEC	mouse	EE	aVEC	cellType	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE237173/EE_Cont-aVEC_Dox_(root_EE_Lineage1).h5ad	GSE237173/EE_Cont-aVEC_Dox_(root_EE_Lineage1)_pseudotime.csv	pseudotime_lineage
+GSE237173_PC_aVEC	mouse	PC	aVEC	cellType	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE237173/PC_Cont-aVEC_Dox_(root_PC_Lineage1).h5ad	GSE237173/PC_Cont-aVEC_Dox_(root_PC_Lineage1)_pseudotime.csv	pseudotime_lineage
+GSE237173_TA_aVEC	mouse	TA	aVEC	cellType	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE237173/TA_Cont-aVEC_Dox_(root_TA_Lineage1).h5ad	GSE237173/TA_Cont-aVEC_Dox_(root_TA_Lineage1)_pseudotime.csv	pseudotime_lineage
+GSE237173_TC_aVEC	mouse	TC	aVEC	cellType	gene_sets/iPSC_oskm_driver_genes.csv	gene_sets/TRRUST_mouse_OSKM_targets.csv	gene_sets/nichenet_gr_signaling_net.csv	GSE237173/TC_Cont-aVEC_Dox_(root_TC_Lineage1).h5ad	GSE237173/TC_Cont-aVEC_Dox_(root_TC_Lineage1)_pseudotime.csv	pseudotime_lineage

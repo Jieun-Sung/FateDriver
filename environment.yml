@@ -1,0 +1,38 @@
+# FateDriver runtime environment.
+#
+# Create with:
+#     conda env create -f environment.yml
+#     conda activate FateDriver
+#
+# Notes
+# -----
+# * PyTorch is installed from the official CUDA 12.1 wheel index. For a CPU-only
+#   machine, replace the torch line with `torch==2.5.1` and drop the
+#   `--extra-index-url` line (training will run but is only practical on GPU).
+# * All scientific packages are pinned to the exact versions used for the paper.
+# * scanpy is only needed by the preprocessing step
+#   (`scripts/compute_pseudotime.py --method dpt`); training does not use it.
+#   The slingshot preprocessing path needs the separate R environment in
+#   `environment_pseudotime.yml`.
+name: FateDriver
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip=24.*
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu121
+      - torch==2.5.1+cu121
+      - numpy==1.26.4
+      - pandas==2.2.3
+      - scipy==1.15.3
+      - scikit-learn==1.6.1
+      - anndata==0.11.4
+      - h5py==3.13.0
+      - tqdm==4.67.1
+      - umap-learn==0.5.7
+      - matplotlib==3.10.3
+      # preprocessing (pseudotime, DPT path)
+      - scanpy==1.11.1
+      - igraph==0.11.8
+      - leidenalg==0.10.2

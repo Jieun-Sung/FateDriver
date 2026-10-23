@@ -1,0 +1,24 @@
+# ---- large released data (hosted externally, see scripts/download_data.sh) ----
+# Ignore every per-dataset directory under data/ ...
+data/*/
+# ... but keep the small self-contained example and the shared gene sets.
+!data/example/
+!data/gene_sets/
+# Downloaded Zenodo archives (scripts/download_data.sh, KEEP_ZIP=1).
+data/*.zip
+# The full NicheNet tables are large and released externally.
+data/gene_sets/nichenet_*.csv
+
+# ---- released model weights (hosted externally) ----
+checkpoints/*/
+
+# ---- run outputs ----
+outputs/
+release/
+
+# ---- python / env cruft ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
