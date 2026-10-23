@@ -41,9 +41,14 @@ practical on GPU; inference from saved weights also runs on CPU).
 
 ```bash
 # from the repository root
-conda env create -f environment.yml
+conda env create --solver=libmamba -f environment.yml
 conda activate FateDriver
 ```
+
+`--solver=libmamba` is recommended: with the classic solver (the default before
+conda 23.10) resolving the conda-forge channel can take a very long time. On
+conda ≥ 23.10 libmamba is already the default and the flag can be dropped; on
+older conda install it first with `conda install -n base conda-libmamba-solver`.
 
 This installs PyTorch 2.5.1 (CUDA 12.1) plus the pinned scientific stack
 (numpy, scipy, pandas, scikit-learn, anndata, h5py, umap-learn, matplotlib,
@@ -62,7 +67,7 @@ files were produced with Slingshot. Only needed if you want to recompute
 pseudotime for your own data with the same method (§2.1):
 
 ```bash
-conda env create -f environment_pseudotime.yml   # r-base 4.4 + slingshot 2.20.0
+conda env create --solver=libmamba -f environment_pseudotime.yml   # r-base 4.5 + slingshot 2.18.0
 ```
 
 You do **not** need it to run FateDriver on the released data, or if you use

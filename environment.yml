@@ -1,7 +1,7 @@
 # FateDriver runtime environment.
 #
 # Create with:
-#     conda env create -f environment.yml
+#     conda env create --solver=libmamba -f environment.yml
 #     conda activate FateDriver
 #
 # Notes
@@ -33,6 +33,6 @@ dependencies:
       - umap-learn==0.5.7
       - matplotlib==3.10.3
       # preprocessing (pseudotime, DPT path)
-      - scanpy==1.11.1
-      - igraph==0.11.8
+      - scanpy==1.11.2
+      - igraph==0.11.9
       - leidenalg==0.10.2

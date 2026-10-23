@@ -4,7 +4,7 @@
 # released `pseudotime.csv` files.
 #
 # Create with:
-#     conda env create -f environment_pseudotime.yml
+#     conda env create --solver=libmamba -f environment_pseudotime.yml
 #     conda activate FateDriver-pseudotime
 #
 # Notes
@@ -15,10 +15,10 @@
 #       python scripts/compute_pseudotime.py ... --rscript $(which Rscript)
 #   or simply pass `--rscript /path/to/envs/FateDriver-pseudotime/bin/Rscript`
 #   from the FateDriver env.
-# * Bioconductor 3.23 (slingshot 2.20.0) is built for R 4.6. If
-#   `bioconductor-slingshot=2.20.0` cannot be solved, drop that line and install
-#   it from Bioconductor inside the env instead:
-#       Rscript -e 'BiocManager::install(version = "3.23"); BiocManager::install("slingshot")'
+# * slingshot 2.18.0 (Bioconductor 3.22) is the latest bioconda build and
+#   requires R 4.5. `bioconductor-delayedmatrixstats` is listed explicitly
+#   because the bioconda slingshot package does not pull it in, and slingshot
+#   fails at run time without it.
 # * You do not need this environment if you use the released datasets or the
 #   pure-Python `--method dpt`.
 name: FateDriver-pseudotime
@@ -26,9 +26,10 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - r-base=4.4
+  - r-base=4.5
   - r-matrix
   - r-igraph
   - r-ggplot2
   - r-dplyr
-  - bioconductor-slingshot=2.20.0
+  - bioconductor-slingshot=2.18.0
+  - bioconductor-delayedmatrixstats
